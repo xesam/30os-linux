@@ -1,0 +1,2 @@
+edimg : edimg.c
+	gcc edimg.c -o edimg

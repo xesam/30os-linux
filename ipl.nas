@@ -53,7 +53,7 @@ fin:
 msg:
 
 	DB		0x0a, 0x0a		;
-	DB		"hello, world"
+	DB		"hello, xesam"
 	DB		0x0a			;
 	DB		0
 
