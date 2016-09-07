@@ -13,7 +13,7 @@ img : helloos.img
 	make -r helloos.img
 
 run : img
-	qemu-system-i386 helloos.img
+	qemu-system-i386 -fda helloos.img
 
 clean:
 	rm ipl.bin
