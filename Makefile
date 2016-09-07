@@ -1,3 +1,5 @@
+TOOL_PATH = ./tools
+
 default:
 	make run
 
@@ -5,8 +7,7 @@ ipl.bin : ipl.nas
 	nasm ipl.nas -o ipl.bin -l ipl.lst
 
 helloos.img : ipl.bin
-	$(warning 'heihei')
-	./tools/edimg ipl.bin helloos.img
+	$(TOOL_PATH)/edimg ipl.bin helloos.img
 
 img : helloos.img
 	make -r helloos.img
