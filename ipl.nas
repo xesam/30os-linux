@@ -33,11 +33,11 @@
 
 entry:
 		MOV		AX,0			; 初始化
-		MOV		SS,AX
-		MOV		SP,0x7c00
-		MOV		DS,AX
+		MOV		SS,AX     :(SS) = 0
+		MOV		SP,0x7c00 ;(SP) = 0x7c00;SS:SP指向指令地址
+		MOV		DS,AX     ; (DS) = 0
 		MOV		AX,0x0820
-		MOV		ES,AX
+		MOV		ES,AX     ; (ES) = 0x0820
 		MOV		CH,0			; 柱面0
 		MOV		DH,0			; 磁头0
 		MOV		CL,2			; 扇区2
@@ -50,7 +50,7 @@ retry:
 		MOV		AL,1			; 每次读取一个扇区
 		MOV		BX,0
 		MOV		DL,0x00		; 驱动器号 为 0
-		INT		0x13			;
+		INT		0x13			; 中断：读磁盘
 		JNC		next			; 没有错误就接着读下一个扇区
 		ADD		SI,1			;
 		CMP		SI,5			;
